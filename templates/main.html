@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> IPSS-R Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <h2>IPSS-R Calculator</h2>
+    <form method="post">
+        Cytogenic Group:<br>
+        <input type="text" name="cg" placeholder="VG, G, I, P, VP">
+        HG Blasts:<br>
+        <input type="number" name="hg" placeholder="0 to 30">
+        Platelets:<br>
+        <input type="number" name="platelets" placeholder="0 to 2000">
+        ANC:<br>
+        <input type="number" name="anc" placeholder="0 to 15">
+        Hemoglobin:<br>
+        <input type="number" name="heme" placeholder="4 to 20">
+        <input type="submit" value="Enter">
+    </form>
+</body>
+</html>
