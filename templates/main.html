@@ -5,21 +5,32 @@
     <title> IPSS-R Calculator</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
 </head>
-<body>
-    <h2>IPSS-R Calculator</h2>
+    <h2><center>IPSS-R Calculator</center></h2>
     <form method="post">
-        Cytogenetic Group:
-        <input type="text" name="cg" placeholder="VG, G, I, P, VP"><br>
-        HG Blasts:
-        <input type="number" name="hg" placeholder="0 to 30"><br>
-        Platelets:
-        <input type="number" name="platelets" placeholder="0 to 2000"><br>
-        ANC:
-        <input type="number" name="anc" placeholder="0 to 15"><br>
-        Hemoglobin:
-        <input type="number" name="heme" placeholder="4 to 20"><br>
-        <input type="submit" value="Enter">
+        <table style="width:100%">
+            <tr>
+                <th><div align="right">Cytogenetic Group:</div></th>
+                <td><input type="text" name="cg" placeholder="VG, G, I, P, VP" maxlength="2"><br></td>
+            </tr>
+            <tr>
+                <th><div align="right">BM Blasts (%):</div></th>
+                <td><input type="number" name="hg" placeholder="0 to 100" min="0" max="100" step="1"><br></td>
+            </tr>
+            <tr>
+                <th><div align="right">Platelets (x10^9/L):</div></th>
+                <td><input type="number" name="platelets" placeholder="0 to 2000" min="0" max="2000" step="10"><br></td>
+            </tr>
+            <tr>
+                <th><div align="right">ANC (x10^9/L):</div></th>
+                <td><input type="number" name="anc" placeholder="0 to 15" min="0.00" max="15.00" step="0.01"><br></td>
+            </tr>
+            <tr>
+                <th><div align="right">Hemoglobin (g/dL):</div></th>
+                <td><input type="number" name="heme" placeholder="4 to 20" min="4" max="20" step="1"><br></td>
+            </tr>
 
+        </table>
+        <center><input type="submit" value="Enter" width="50"></center>
     </form>
     <!-- { % this is code % }
     #Pecentage sign-->
