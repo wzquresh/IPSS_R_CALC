@@ -12,8 +12,10 @@ def getcg(cg):
         "P": 3,
         "VP": 4
     }
-    return switcher.get(cg, 0)
-
+    print(cg)
+    print(switcher["VP"])
+    print(switcher.get(str.upper(cg),0))
+    return switcher[str.upper(cg)]
 
 # HG Blasts: <=2: 0, >2 to 5<: 1, 5 to 10: 2, >10: 3
 def gethg(hg):
@@ -58,15 +60,15 @@ def getheme(heme):
 # Risk Category: VL: <=1.5, L: >1.5 to 3, I: >3 to 4.5, H: >4.5 to 6, VH: >6
 def getriskcat(risk):
     if risk <= 1.5:
-        return "VL"
+        return "Very Low"
     elif 1.5 < risk <= 3:
-        return "L"
+        return "Low"
     elif 3 < risk <= 4.5:
-        return "I"
+        return "Intermediate"
     elif 4.5 < risk <= 6:
-        return "H"
+        return "High"
     else:
-        return "VH"
+        return "So Very Incredibly High OH MY GOD"
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -74,15 +76,19 @@ def index():
     if request.method == 'GET':
         return render_template("main.html")
     elif request.method == 'POST':
-        CG = request.args.get('cg', '0')
+        #Access the Users Inputs
+        #CG = str(request.args.get('cg', '0'))
+        CG = request.form['cg']
         HG = float(request.args.get('hg', '0'))
         platelets = float(request.args.get('platelets', '0'))
         ANC = float(request.args.get('anc', '0'))
         heme = float(request.args.get('heme', '0'))
+        #Call the adding functions
         risk = getcg(CG) + gethg(HG) + getplatelets(platelets) + getanc(ANC) + getheme(heme)
+        #Associate number with value
         riskcat = getriskcat(risk)
-        return 'result: %s %s' % (risk, riskcat)
-
+        answer = "Risk: %s %s" % (risk, riskcat)
+        return render_template('main.html', text=answer)
 
 # Print score and Risk Category
 # pages with variables <username> or <int:id>
