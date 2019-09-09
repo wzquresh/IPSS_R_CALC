@@ -6,11 +6,11 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
 </head>
     <h1><center>IPSS-R Calculator</center></h1>
-    <h3><center>for Myelodysplastic Syndromes</center></h3>
+    <h3><center>for Myelodysplastic Syndromes<br><br></center></h3>
     <form method="post">
-        <table style="width:100%">
+        <table style="width:89%">
             <tr>
-                <th><div align="right">Cytogenetic Group:</div></th>
+                <td><div align="right">Cytogenetic Group:</div></td>
                 <td><select name="Cytogenetic Group">
                     <option value="Very Good">Very Good</option>
                     <option value="Good">Good</option>
@@ -20,19 +20,19 @@
                 </select></td>
             </tr>
             <tr>
-                <th><div align="right">BM Blasts (%):</div></th>
+                <td><div align="right">BM Blasts (%):</div></td>
                 <td><input type="number" name="hg" placeholder="0 to 30" min="0" max="100" step="1"><br></td>
             </tr>
             <tr>
-                <th><div align="right">Platelets (x10<sup>9</sup>/L):</div></th>
+                <td><div align="right">Platelets (x10<sup>9</sup>/L):</div></td>
                 <td><input type="number" name="platelets" placeholder="0 to 2000" min="0" max="2000" step="10"><br></td>
             </tr>
             <tr>
-                <th><div align="right">ANC (x10<sup>9</sup>/L):</div></th>
+                <td><div align="right">ANC (x10<sup>9</sup>/L):</div></td>
                 <td><input type="number" name="anc" placeholder="0 to 15" min="0.00" max="15.00" step="0.01"><br></td>
             </tr>
             <tr>
-                <th><div align="right">Hemoglobin (g/dL):</div></th>
+                <td><div align="right">Hemoglobin (g/dL):</div></td>
                 <td><input type="number" name="heme" placeholder="4 to 20" min="4" max="20" step="1"><br></td>
             </tr>
 
