@@ -5,6 +5,7 @@ app = Flask(__name__)
 
 # Cytogenic group: VG: 0, G: 1, I: 2, P: 3, VP: 4
 def getcg(cg):
+
     switcher = {
         "VG": 0,
         "G": 1,
@@ -12,10 +13,11 @@ def getcg(cg):
         "P": 3,
         "VP": 4
     }
-    print(cg)
-    print(switcher["VP"])
-    print(switcher.get(str.upper(cg),0))
-    return switcher[str.upper(cg)]
+
+    key = switcher.get(str.upper(cg),-1)
+    if key == -1:
+        raise Exception('Enter Real Cytogenetic Group!')
+    return key
 
 # HG Blasts: <=2: 0, >2 to 5<: 1, 5 to 10: 2, >10: 3
 def gethg(hg):
@@ -60,7 +62,7 @@ def getheme(heme):
 # Risk Category: VL: <=1.5, L: >1.5 to 3, I: >3 to 4.5, H: >4.5 to 6, VH: >6
 def getriskcat(risk):
     if risk <= 1.5:
-        return "Very Low"
+        return "Very Low: You Thriving"
     elif 1.5 < risk <= 3:
         return "Low"
     elif 3 < risk <= 4.5:
@@ -88,6 +90,7 @@ def index():
         #Associate number with value
         riskcat = getriskcat(risk)
         answer = "Risk: %s %s" % (risk, riskcat)
+        print(answer)
         return render_template('main.html', text=answer)
 
 # Print score and Risk Category
