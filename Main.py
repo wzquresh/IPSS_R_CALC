@@ -5,7 +5,6 @@ app = Flask(__name__)
 
 # Cytogenic group: VG: 0, G: 1, I: 2, P: 3, VP: 4
 def getcg(cg):
-    print(cg)
     switcher = {
         "Very Good": 0,
         "Good": 1,
@@ -13,7 +12,6 @@ def getcg(cg):
         "Poor": 3,
         "Very Poor": 4
     }
-
     return switcher.get(cg,-1)
 
 # HG Blasts: <=2: 0, >2 to 5<: 1, 5 to 10: 2, >10: 3
